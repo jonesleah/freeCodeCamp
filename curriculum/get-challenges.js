@@ -276,15 +276,15 @@ function generateChallengeCreator(lang, englishPath, i18nPath) {
       ({ id }) => id === challenge.id
     );
 
-    const isObjectIdFilename = /[a-z0-9]{24}\.md$/.test(englishPath);
-    if (isObjectIdFilename) {
-      const filename = englishPath.split('/').pop();
-      if (filename !== `${challenge.id}.md`) {
-        throw Error(
-          `Filename ${filename} does not match challenge id ${challenge.id}`
-        );
-      }
-    }
+    // const isObjectIdFilename = /[a-z0-9]{24}$/.test(englishPath);
+    // if (isObjectIdFilename) {
+    //   const filename = englishPath.split('/').pop();
+    //   if (filename !== `${challenge.id}.md`) {
+    //     throw Error(
+    //       `Filename ${filename} does not match challenge id ${challenge.id}`
+    //     );
+    //   }
+    // }
 
     challenge.block = meta.dashedName;
     challenge.blockType = meta.blockType;

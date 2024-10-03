@@ -60,11 +60,11 @@
     "preseed": "npm-run-all create:shared",
     "playwright:install-build-tools": "npx playwright install --with-deps",
     "rename-challenges": "ts-node tools/challenge-helper-scripts/rename-challenge-files.ts",
-    "seed": "pnpm seed:surveys && pnpm seed:exams && DEBUG=fcc:* node ./tools/scripts/seed/seed-demo-user",
-    "seed:certified-user": "pnpm seed:surveys && pnpm seed:exams && pnpm seed:ms-username && DEBUG=fcc:* node ./tools/scripts/seed/seed-demo-user --certified-user",
-    "seed:exams": "DEBUG=fcc:* node tools/scripts/seed-exams/create-exams",
-    "seed:surveys": "DEBUG=fcc:* node ./tools/scripts/seed/seed-surveys",
-    "seed:ms-username": "DEBUG=fcc:* node ./tools/scripts/seed/seed-ms-username",
+    "seed": "pnpm seed:surveys && pnpm seed:exams && cross-env DEBUG=fcc:* node ./tools/scripts/seed/seed-demo-user",
+    "seed:certified-user": "pnpm seed:surveys && pnpm seed:exams && pnpm seed:ms-username && cross-env DEBUG=fcc:* node ./tools/scripts/seed/seed-demo-user --certified-user",
+    "seed:exams": "cross-env DEBUG=fcc:* node tools/scripts/seed-exams/create-exams",
+    "seed:surveys": "cross-env DEBUG=fcc:* node ./tools/scripts/seed/seed-surveys",
+    "seed:ms-username": "cross-env DEBUG=fcc:* node ./tools/scripts/seed/seed-ms-username",
     "serve:client": "cd ./client && pnpm run serve",
     "serve:client-ci": "cd ./client && pnpm run serve-ci",
     "start": "npm-run-all create:shared -p develop:server serve:client",
@@ -86,6 +86,7 @@
     "playwright:watch": "playwright test --ui"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "16.4.5"
   },
   "devDependencies": {
